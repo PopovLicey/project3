@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+  <h1>Миссия Колонизация Марса</h1>
+  <h4>И на Марсе будут яблони цвести!</h4>
+  <h2>Список Профессий</h2>
+  <{{ list }}>
+    {% for prof in sod %}
+    <li>{{ prof }}
+    </li>
+    {% endfor %}
+  </{{ list }}>
+</body>
+</html>
