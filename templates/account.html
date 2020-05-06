@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>Уроки</title>
+</head>
+<style>
+   .letter {
+    p {
+    color: rgb(255, 0, 0);
+   }
+    font-size: 200%;
+   }
+</style>
+<body>
+<p><a href="/main" class="btn btn-primary">На главную страницу</a></p>
+<div class="alert alert-info">
+    <h4>
+        <p>Имя: {{ current_user.name }} <br> </p>
+        <p>Фамилия: {{ current_user.surname }} <br> </p>
+        <p>Вы - {{ current_user.age }} <br> </p>
+        <p>Пароль: {{ current_user.hashed_password }} <br></p>
+        <p>E-mail: {{ current_user.email }} <br></p>
+    </h4>
+    <a href="/edit_acc" class="btn btn-primary">Редактировать информацию</a>
+</div>
+ <p align="justify"><span class="letter"> {{ message }} </span></p>
+</body>
+{% endblock %}

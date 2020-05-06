@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,11 +7,20 @@
           crossorigin="anonymous">
     <title>Title</title>
 </head>
+<header>
+    <nav class="navbar navbar-light bg-light">
+          <p align="justify">
+          <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
+          <a class="btn btn-success" href="/login">Войти</a>
+          </p>
+    </nav>
+</header>
 <body>
+<main role="main" class="container">
     <h1>Регистрация</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
-        <p>
+        <p align="justify">
             {{ form.name.label }}<br>
             {{ form.name(class="form-control")}}<br>
             {% for error in form.name.errors %}
@@ -22,7 +29,7 @@
                 </div>
             {% endfor %}
         </p>
-        <p>
+        <p align="justify">
             {{ form.surname.label }}<br>
             {{ form.surname(class="form-control")}}<br>
             {% for error in form.surname.errors %}
@@ -31,16 +38,16 @@
                 </div>
             {% endfor %}
         </p>
-        <p>
-            {{ form.age.label }}<br>
-            {{ form.age(class="form-control") }}<br>
-            {% for error in form.age.errors %}
+        <p align="justify">
+            {{ form.prof.label }}<br>
+            {{ form.prof(class="form-control") }}<br>
+            {% for error in form.prof.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
             {% endfor %}
         </p>
-        <p>
+        <p align="justify">
             {{ form.password.label }}<br>
             {{ form.password(class="form-control", type="password") }}<br>
             {% for error in form.password.errors %}
@@ -49,7 +56,7 @@
                 </div>
             {% endfor %}
         </p>
-        <p>
+        <p align="justify">
             {{ form.email.label }}<br>
             {{ form.email(class="form-control", type="email") }}<br>
             {% for error in form.email.errors %}
@@ -58,8 +65,8 @@
                 </div>
             {% endfor %}
         </p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <p align="justify">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
         <div>{{ message }}</div>
     </form>
+</main>
 </body>
-</html>

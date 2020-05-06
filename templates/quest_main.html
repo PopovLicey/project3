@@ -10,7 +10,7 @@
     <title>Уроки</title>
 </head>
 <header>
-    <p><a href="/questions_main" class="btn btn-primary"> На страницу с заданиями </a></p>
+     <p><a href="/main" class="btn btn-primary">Вернуться на главную страницу</a></p><br>
      <form action="" method="post">
         {{ form.hidden_tag() }}
      <nav>
@@ -27,21 +27,31 @@
      </nav>
      </form>
 </header>
+<style>
+   .letter {
+    p {
+    color: rgb(255, 0, 0);
+   }
+    font-size: 200%;
+   }
+</style>
 <body>
-    {% for lesson in lessons %}
+    {% for lesson in questions %}
         <div class="alert alert-info">
-            Урок: {{ lesson.title }} <br>
-            Id: {{lesson.id}} <br>
-            <a href="/go_lesson/{{ lesson.id }}" class="btn btn-success">Изучить урок</a>
+            Id: {{ lesson.id }}<br>
+            Задание: {{ lesson.quest }} <br>
+            Ответы: {{ lesson.answers }} <br>
+            Тип задания: {{ lesson.type_q }} <br>
+            Правильные ответы: {{ lesson.correct_ans }} <br>
             {% if current_user.is_authenticated and current_user.id == lesson.creator_id %}
             <div>
-                <a href="/edit_lesson/{{ lesson.id }}" class="btn btn-warning">Изменить</a>
-                <a href="/lesson_delete/{{ lesson.id }}" class="btn btn-danger">Удалить</a>
+                <a href="/edit_quest/{{ lesson.id }}" class="btn btn-warning">Изменить</a>
+                <a href="/quest_delete/{{ lesson.id }}" class="btn btn-danger">Удалить</a>
             </div>
             {% endif %}
         </div>
     {% endfor %}
- </head>
- <p align="justify"> {{ message }} </p>
+    <p><a href="/add_quest" class="btn btn-primary">Создать задание</a></p><br>
+ <p align="justify"><span class="letter"> {{ message }} </span></p>
 </body>
 {% endblock %}
