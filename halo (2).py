@@ -1,6 +1,7 @@
 from os import abort
 from flask import Flask, render_template, redirect, request, session, make_response
 from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
+from flask_ngrok import run_with_ngrok
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, IntegerField, SelectField
 from wtforms.fields.html5 import EmailField
@@ -64,6 +65,7 @@ class Question(SqlAlchemyBase):
 __factory = None
 ses, first = None, True
 app = Flask(__name__)
+run_with_ngrok(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 app.config['SECRET_KEY'] = 'Q2WJb4M7Xza0loHh'
@@ -401,4 +403,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, host='127.0.0.1')
+    app.run()
